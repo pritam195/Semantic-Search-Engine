@@ -1,0 +1,19 @@
+# Rigorous Evaluation Benchmark Configuration
+queries_path: "data/eval/queries.jsonl"
+qrels_path: "data/eval/qrels.jsonl"
+results_output: "reports/results/evaluation_results.json"
+figures_dir: "reports/figures"
+random_seed: 42
+
+evaluation:
+  cutoffs: [5, 10]
+  ndcg_cutoff: 10
+  statistical_significance:
+    method: "paired_bootstrap"
+    n_bootstrap: 1000
+    confidence_level: 0.95
+  models_to_evaluate:
+    - "tfidf"
+    - "bm25"
+    - "minilm"
+    - "bge"

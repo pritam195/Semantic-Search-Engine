@@ -1,0 +1,443 @@
+{
+  "benchmark_summary": {
+    "num_queries": 90,
+    "query_types": {
+      "keyword": 30,
+      "natural_language_question": 30,
+      "paraphrase_vocab_mismatch": 30
+    },
+    "corpus_documents": 5000,
+    "models_evaluated": [
+      "TF-IDF",
+      "BM25",
+      "MiniLM",
+      "BGE"
+    ]
+  },
+  "models": {
+    "TF-IDF": {
+      "mean_latency_ms": 10.55,
+      "overall": {
+        "precision_at_5": 0.4911,
+        "precision_at_10": 0.4156,
+        "recall_at_5": 0.2381,
+        "recall_at_10": 0.3925,
+        "mrr": 0.7284,
+        "map": 0.2824,
+        "ndcg_at_10": 0.4363,
+        "ndcg_95_ci": [
+          0.3836,
+          0.4908
+        ]
+      },
+      "recall_curve": [
+        0.0726,
+        0.1228,
+        0.1665,
+        0.1966,
+        0.2381,
+        0.2732,
+        0.316,
+        0.3424,
+        0.3676,
+        0.3925
+      ],
+      "per_query_type": {
+        "keyword": {
+          "precision_at_10": 0.5833,
+          "recall_at_10": 0.4561,
+          "mrr": 0.9222,
+          "map": 0.371,
+          "ndcg_at_10": 0.5431
+        },
+        "natural_language_question": {
+          "precision_at_10": 0.4767,
+          "recall_at_10": 0.4439,
+          "mrr": 0.8437,
+          "map": 0.3387,
+          "ndcg_at_10": 0.5353
+        },
+        "paraphrase_vocab_mismatch": {
+          "precision_at_10": 0.1867,
+          "recall_at_10": 0.2775,
+          "mrr": 0.4194,
+          "map": 0.1376,
+          "ndcg_at_10": 0.2304
+        }
+      }
+    },
+    "BM25": {
+      "mean_latency_ms": 87.02,
+      "overall": {
+        "precision_at_5": 0.4333,
+        "precision_at_10": 0.35,
+        "recall_at_5": 0.2091,
+        "recall_at_10": 0.3213,
+        "mrr": 0.7181,
+        "map": 0.241,
+        "ndcg_at_10": 0.4707,
+        "ndcg_95_ci": [
+          0.408,
+          0.5276
+        ]
+      },
+      "recall_curve": [
+        0.0738,
+        0.1152,
+        0.1505,
+        0.1859,
+        0.2091,
+        0.2302,
+        0.2635,
+        0.2849,
+        0.3041,
+        0.3213
+      ],
+      "per_query_type": {
+        "keyword": {
+          "precision_at_10": 0.52,
+          "recall_at_10": 0.4131,
+          "mrr": 0.95,
+          "map": 0.3392,
+          "ndcg_at_10": 0.6224
+        },
+        "natural_language_question": {
+          "precision_at_10": 0.39,
+          "recall_at_10": 0.3418,
+          "mrr": 0.7862,
+          "map": 0.2661,
+          "ndcg_at_10": 0.532
+        },
+        "paraphrase_vocab_mismatch": {
+          "precision_at_10": 0.14,
+          "recall_at_10": 0.2089,
+          "mrr": 0.4181,
+          "map": 0.1177,
+          "ndcg_at_10": 0.2578
+        }
+      }
+    },
+    "MiniLM": {
+      "mean_latency_ms": 10.84,
+      "overall": {
+        "precision_at_5": 0.5778,
+        "precision_at_10": 0.5289,
+        "recall_at_5": 0.2992,
+        "recall_at_10": 0.5437,
+        "mrr": 0.8058,
+        "map": 0.3897,
+        "ndcg_at_10": 0.559,
+        "ndcg_95_ci": [
+          0.5056,
+          0.6116
+        ]
+      },
+      "recall_curve": [
+        0.0785,
+        0.1481,
+        0.1958,
+        0.2438,
+        0.2992,
+        0.3312,
+        0.3861,
+        0.4542,
+        0.5045,
+        0.5437
+      ],
+      "per_query_type": {
+        "keyword": {
+          "precision_at_10": 0.7067,
+          "recall_at_10": 0.5447,
+          "mrr": 0.9667,
+          "map": 0.4864,
+          "ndcg_at_10": 0.7058
+        },
+        "natural_language_question": {
+          "precision_at_10": 0.5733,
+          "recall_at_10": 0.5425,
+          "mrr": 0.8256,
+          "map": 0.4068,
+          "ndcg_at_10": 0.5704
+        },
+        "paraphrase_vocab_mismatch": {
+          "precision_at_10": 0.3067,
+          "recall_at_10": 0.544,
+          "mrr": 0.625,
+          "map": 0.2758,
+          "ndcg_at_10": 0.4007
+        }
+      }
+    },
+    "BGE": {
+      "mean_latency_ms": 16.4,
+      "overall": {
+        "precision_at_5": 0.5978,
+        "precision_at_10": 0.5244,
+        "recall_at_5": 0.3148,
+        "recall_at_10": 0.5358,
+        "mrr": 0.8175,
+        "map": 0.4053,
+        "ndcg_at_10": 0.6122,
+        "ndcg_95_ci": [
+          0.5546,
+          0.6654
+        ]
+      },
+      "recall_curve": [
+        0.095,
+        0.1716,
+        0.2194,
+        0.2631,
+        0.3148,
+        0.3626,
+        0.401,
+        0.4424,
+        0.4911,
+        0.5358
+      ],
+      "per_query_type": {
+        "keyword": {
+          "precision_at_10": 0.7133,
+          "recall_at_10": 0.5712,
+          "mrr": 0.9833,
+          "map": 0.5048,
+          "ndcg_at_10": 0.7908
+        },
+        "natural_language_question": {
+          "precision_at_10": 0.5567,
+          "recall_at_10": 0.5556,
+          "mrr": 0.8046,
+          "map": 0.399,
+          "ndcg_at_10": 0.6032
+        },
+        "paraphrase_vocab_mismatch": {
+          "precision_at_10": 0.3033,
+          "recall_at_10": 0.4808,
+          "mrr": 0.6645,
+          "map": 0.3121,
+          "ndcg_at_10": 0.4426
+        }
+      }
+    }
+  },
+  "statistical_significance": {
+    "BM25_vs_TFIDF": {
+      "mean_diff": 0.03443,
+      "bootstrap_p_value": 0.133,
+      "t_test_p_value": 0.14928,
+      "t_statistic": 1.4547,
+      "statistically_significant_05": false,
+      "statistically_significant_01": false
+    },
+    "MiniLM_vs_BM25": {
+      "mean_diff": 0.08826,
+      "bootstrap_p_value": 0.006,
+      "t_test_p_value": 0.00557,
+      "t_statistic": 2.8411,
+      "statistically_significant_05": true,
+      "statistically_significant_01": true
+    },
+    "BGE_vs_BM25": {
+      "mean_diff": 0.14145,
+      "bootstrap_p_value": 0.0,
+      "t_test_p_value": 1e-05,
+      "t_statistic": 4.586,
+      "statistically_significant_05": true,
+      "statistically_significant_01": true
+    },
+    "BGE_vs_MiniLM": {
+      "mean_diff": 0.05319,
+      "bootstrap_p_value": 0.055,
+      "t_test_p_value": 0.04703,
+      "t_statistic": 2.014,
+      "statistically_significant_05": false,
+      "statistically_significant_01": false
+    }
+  },
+  "error_analysis": {
+    "top_10_lexical_wins": [
+      {
+        "query_id": "q52",
+        "query": "how does boosting sequentially fit new models to the pseudo-residuals of past models?",
+        "query_type": "natural_language_question",
+        "target_topic": "Gradient boosting",
+        "bm25_ndcg": 0.9639,
+        "minilm_ndcg": 0.0829,
+        "diff_bm25_minus_minilm": 0.881
+      },
+      {
+        "query_id": "q64",
+        "query": "partitioning unlabeled records into bunches by iteratively updating center positions",
+        "query_type": "paraphrase_vocab_mismatch",
+        "target_topic": "K-means clustering",
+        "bm25_ndcg": 0.7262,
+        "minilm_ndcg": 0.191,
+        "diff_bm25_minus_minilm": 0.5352
+      },
+      {
+        "query_id": "q05",
+        "query": "gradient descent learning rate step size",
+        "query_type": "keyword",
+        "target_topic": "Gradient descent",
+        "bm25_ndcg": 0.8121,
+        "minilm_ndcg": 0.4228,
+        "diff_bm25_minus_minilm": 0.3893
+      },
+      {
+        "query_id": "q50",
+        "query": "how do spatial partitioning trees speed up nearest neighbor searches?",
+        "query_type": "natural_language_question",
+        "target_topic": "Nearest neighbor search",
+        "bm25_ndcg": 0.6066,
+        "minilm_ndcg": 0.2288,
+        "diff_bm25_minus_minilm": 0.3778
+      },
+      {
+        "query_id": "q35",
+        "query": "how does gradient descent update parameters to minimize the loss function?",
+        "query_type": "natural_language_question",
+        "target_topic": "Gradient descent",
+        "bm25_ndcg": 0.7202,
+        "minilm_ndcg": 0.353,
+        "diff_bm25_minus_minilm": 0.3672
+      },
+      {
+        "query_id": "q22",
+        "query": "gradient boosting xgboost residuals",
+        "query_type": "keyword",
+        "target_topic": "Gradient boosting",
+        "bm25_ndcg": 0.7802,
+        "minilm_ndcg": 0.4539,
+        "diff_bm25_minus_minilm": 0.3263
+      },
+      {
+        "query_id": "q39",
+        "query": "why is the logistic function used to model binary probability outcomes?",
+        "query_type": "natural_language_question",
+        "target_topic": "Logistic regression",
+        "bm25_ndcg": 0.8662,
+        "minilm_ndcg": 0.5505,
+        "diff_bm25_minus_minilm": 0.3158
+      },
+      {
+        "query_id": "q11",
+        "query": "linear regression ordinary least squares residuals",
+        "query_type": "keyword",
+        "target_topic": "Linear regression",
+        "bm25_ndcg": 0.6144,
+        "minilm_ndcg": 0.3234,
+        "diff_bm25_minus_minilm": 0.2911
+      },
+      {
+        "query_id": "q65",
+        "query": "taking small steps downhill along the steepest path to find the lowest valley",
+        "query_type": "paraphrase_vocab_mismatch",
+        "target_topic": "Gradient descent",
+        "bm25_ndcg": 0.4695,
+        "minilm_ndcg": 0.1792,
+        "diff_bm25_minus_minilm": 0.2903
+      },
+      {
+        "query_id": "q86",
+        "query": "drawing random samples from complex probability landscapes through guided random walks",
+        "query_type": "paraphrase_vocab_mismatch",
+        "target_topic": "Markov chain Monte Carlo",
+        "bm25_ndcg": 0.3767,
+        "minilm_ndcg": 0.0967,
+        "diff_bm25_minus_minilm": 0.2801
+      }
+    ],
+    "top_10_semantic_wins": [
+      {
+        "query_id": "q54",
+        "query": "how do researchers interpret p-values when deciding to reject the null hypothesis?",
+        "query_type": "natural_language_question",
+        "target_topic": "Statistical hypothesis testing",
+        "bm25_ndcg": 0.0,
+        "minilm_ndcg": 0.6788,
+        "diff_bm25_minus_minilm": -0.6788
+      },
+      {
+        "query_id": "q61",
+        "query": "drawing a decision boundary that keeps the widest possible corridor between categories",
+        "query_type": "paraphrase_vocab_mismatch",
+        "target_topic": "Support vector machine",
+        "bm25_ndcg": 0.0,
+        "minilm_ndcg": 0.674,
+        "diff_bm25_minus_minilm": -0.674
+      },
+      {
+        "query_id": "q76",
+        "query": "allowing every token in a sentence to look at and score its relationship with every other token",
+        "query_type": "paraphrase_vocab_mismatch",
+        "target_topic": "Transformer (deep learning architecture)",
+        "bm25_ndcg": 0.0,
+        "minilm_ndcg": 0.6309,
+        "diff_bm25_minus_minilm": -0.6309
+      },
+      {
+        "query_id": "q57",
+        "query": "how do search engines score documents using inverted index postings?",
+        "query_type": "natural_language_question",
+        "target_topic": "Inverted index",
+        "bm25_ndcg": 0.0911,
+        "minilm_ndcg": 0.7203,
+        "diff_bm25_minus_minilm": -0.6293
+      },
+      {
+        "query_id": "q81",
+        "query": "dynamic programming pathfinding for uncovering unobserved events behind noisy clues",
+        "query_type": "paraphrase_vocab_mismatch",
+        "target_topic": "Viterbi algorithm",
+        "bm25_ndcg": 0.087,
+        "minilm_ndcg": 0.6844,
+        "diff_bm25_minus_minilm": -0.5974
+      },
+      {
+        "query_id": "q88",
+        "query": "measuring angle between two word frequency vectors regardless of text length",
+        "query_type": "paraphrase_vocab_mismatch",
+        "target_topic": "Cosine similarity",
+        "bm25_ndcg": 0.0,
+        "minilm_ndcg": 0.59,
+        "diff_bm25_minus_minilm": -0.59
+      },
+      {
+        "query_id": "q09",
+        "query": "logistic regression sigmoid activation",
+        "query_type": "keyword",
+        "target_topic": "Logistic regression",
+        "bm25_ndcg": 0.1555,
+        "minilm_ndcg": 0.7296,
+        "diff_bm25_minus_minilm": -0.574
+      },
+      {
+        "query_id": "q67",
+        "query": "crowdsourcing decisions by polling a large collection of randomized branching flowcharts",
+        "query_type": "paraphrase_vocab_mismatch",
+        "target_topic": "Random forest",
+        "bm25_ndcg": 0.0,
+        "minilm_ndcg": 0.5714,
+        "diff_bm25_minus_minilm": -0.5714
+      },
+      {
+        "query_id": "q90",
+        "query": "a simple ramp function that passes positive inputs directly and zeroes out negative ones",
+        "query_type": "paraphrase_vocab_mismatch",
+        "target_topic": "Rectifier (neural networks)",
+        "bm25_ndcg": 0.2082,
+        "minilm_ndcg": 0.707,
+        "diff_bm25_minus_minilm": -0.4988
+      },
+      {
+        "query_id": "q01",
+        "query": "support vector machine kernel trick",
+        "query_type": "keyword",
+        "target_topic": "Support vector machine",
+        "bm25_ndcg": 0.3666,
+        "minilm_ndcg": 0.8604,
+        "diff_bm25_minus_minilm": -0.4938
+      }
+    ]
+  }
+}

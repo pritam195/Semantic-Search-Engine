@@ -140,6 +140,83 @@ Evaluated on **5,000 passages** over **100 domain queries** ($k=10$) with `all-M
 
 ---
 
+## Phase 4: Rigorous Retrieval Evaluation (Completed)
+
+In Phase 4, we built an end-to-end evaluation benchmark across 90 stratified queries, generated pooled candidate judgments (2,384 relevance pairs), implemented IR metrics from scratch, ran paired bootstrap hypothesis tests with 95% confidence intervals, and performed deep error analysis.
+
+### What Was Built:
+1. **Stratified Query Benchmark (`data/eval/queries.jsonl`)**:
+   - 90 queries categorized into 3 distinct representation types:
+     - **30 Keyword queries**: Exact technical terminology, acronyms, and named entities.
+     - **30 Natural Language Questions**: Conversational and instructional information requests.
+     - **30 Paraphrase / Vocabulary Mismatch queries**: Descriptions and analogies with zero-to-low token overlap with canonical documents.
+2. **Relevance Pooling & Labeling Tools (`src/eval/labeling.py`)**:
+   - Union pooling of top-10 candidates from all retrievers (TF-IDF, BM25, MiniLM, BGE) resulting in 2,384 candidate document-query pairs in `data/eval/qrels.jsonl`.
+   - Graded relevance scale: `0` (not relevant), `1` (relevant), `2` (highly relevant).
+   - Interactive CLI tool (`python -m src.eval.labeling --cli`) and Cohen's Kappa agreement calculation.
+3. **From-Scratch IR Metrics Suite (`src/eval/metrics.py`)**:
+   - Exact mathematical implementations of Precision@k, Recall@k, MRR, MAP, and nDCG@k with unit test verification against hand-calculated toy matrices.
+4. **Statistical Hypothesis Testing (`src/eval/stats.py`)**:
+   - Paired bootstrap significance testing ($B=1000$ iterations) and empirical 95% confidence intervals.
+5. **Visualization Engine (`src/eval/plots.py`)**:
+   - `reports/figures/metrics_by_query_type.png`: Grouped bar charts across query categories.
+   - `reports/figures/latency_vs_ndcg.png`: Latency vs accuracy Pareto tradeoff frontier.
+   - `reports/figures/recall_at_k_curves.png`: Multi-model Recall@k curves ($k=1 \dots 10$).
+
+---
+
+## Rigorous Evaluation Benchmark (Phase 4 Results)
+
+Evaluated across **90 benchmark queries** over the **5,000 document collection** ($k=10$). Programmatic metrics from `reports/results/evaluation_results.json`:
+
+| Retriever | Overall nDCG@10 | 95% Confidence Interval | MAP | MRR | Precision@10 | Recall@10 | Latency (ms) |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| **TF-IDF** | 0.4363 | [0.384, 0.491] | 0.2824 | 0.7284 | 0.4156 | 0.3925 | 10.55 ms |
+| **BM25** | 0.4707 | [0.408, 0.528] | 0.2410 | 0.7181 | 0.3500 | 0.3213 | 86.48 ms |
+| **MiniLM** | 0.5590 | [0.506, 0.612] | 0.3897 | 0.8058 | 0.5289 | 0.5437 | 10.86 ms |
+| **BGE** | **0.6122** | **[0.555, 0.665]** | **0.4053** | **0.8175** | **0.5244** | **0.5358** | 16.48 ms |
+
+---
+
+## Performance Stratification by Query Type (nDCG@10)
+
+| Retriever | Keyword Queries (N=30) | Natural Language Questions (N=30) | Paraphrase / Vocab Mismatch (N=30) |
+| :--- | :--- | :--- | :--- |
+| **TF-IDF** | 0.5431 | 0.5353 | 0.2304 |
+| **BM25** | 0.6224 | 0.5320 | 0.2578 |
+| **MiniLM** | 0.7058 | 0.5704 | 0.4007 |
+| **BGE** | **0.7908** | **0.6032** | **0.4426** |
+
+---
+
+## Statistical Significance Testing (Paired Bootstrap, B=1000)
+
+| Comparison | Mean Difference ($\Delta$) | Bootstrap p-value | Significance |
+| :--- | :--- | :--- | :--- |
+| **BM25 vs. TF-IDF** | +0.0344 | $p = 0.1330$ | Not Significant ($p \ge 0.05$) |
+| **MiniLM vs. BM25** | **+0.0883** | **$p = 0.0060$** | **Statistically Significant ($p < 0.01$)** |
+| **BGE vs. BM25** | **+0.1414** | **$p = 0.0000$** | **Statistically Significant ($p < 0.001$)** |
+| **BGE vs. MiniLM** | +0.0532 | $p = 0.0550$ | Marginally Significant ($p \approx 0.05$) |
+
+---
+
+## Error Analysis: Why Each Approach Wins
+
+### 1. Where Lexical Retrieval (BM25 / TF-IDF) Wins:
+- **Rare Named Entities and Acronyms**: For queries like `"gradient boosting xgboost residuals"` (q22: BM25 0.7802 vs MiniLM 0.4539), the exact token `xgboost` carries massive inverse document frequency ($\text{IDF}$), allowing BM25 to isolate the exact page instantly.
+- **Specific Mathematical Jargon**: For `"how does boosting sequentially fit new models to the pseudo-residuals of past models?"` (q52: BM25 0.9639 vs MiniLM 0.0829), the term `pseudo-residuals` is uniquely discriminative in lexical space. Embedding models compress the phrase into a generic ensemble representation, retrieving broad machine learning articles instead of the precise gradient boosting formulation.
+- **Parameter Nuances**: In `"gradient descent learning rate step size"` (q05: BM25 0.8121 vs MiniLM 0.4228), lexical matching guarantees all 5 technical keywords co-occur.
+
+### 2. Where Semantic Embeddings (MiniLM / BGE) Win:
+- **Zero-Overlap Vocabulary Mismatch**:
+  - *"drawing a decision boundary that keeps the widest possible corridor between categories"* (q61: BM25 0.0000 vs MiniLM 0.6740). BM25 fails completely ($nDCG=0$) because words like "corridor" and "categories" never appear in the formal definition of Support Vector Machines. MiniLM maps the geometric intuition directly to SVM margin maximization!
+  - *"allowing every token in a sentence to look at and score its relationship with every other token"* (q76: BM25 0.0000 vs MiniLM 0.6309). BM25 scores 0; MiniLM matches the attention mechanism of Transformers.
+  - *"crowdsourcing decisions by polling a large collection of randomized branching flowcharts"* (q67: BM25 0.0000 vs MiniLM 0.5714). BM25 scores 0; MiniLM identifies Random Forest decision trees.
+- **Conceptual Invariance**:
+  - *"measuring angle between two word frequency vectors regardless of text length"* (q88: BM25 0.0000 vs MiniLM 0.5900). Semantic embeddings identify Cosine Similarity without the term appearing.
+
+---
+
 ## How to Run
 
 ### 1. Setup Environment

@@ -1,0 +1,90 @@
+{"query_id": "q01", "query": "support vector machine kernel trick", "query_type": "keyword", "target_topic": "Support vector machine"}
+{"query_id": "q02", "query": "convolutional neural network pooling layer", "query_type": "keyword", "target_topic": "Convolutional neural network"}
+{"query_id": "q03", "query": "principal component analysis singular value decomposition", "query_type": "keyword", "target_topic": "Principal component analysis"}
+{"query_id": "q04", "query": "k-means clustering centroid", "query_type": "keyword", "target_topic": "K-means clustering"}
+{"query_id": "q05", "query": "gradient descent learning rate step size", "query_type": "keyword", "target_topic": "Gradient descent"}
+{"query_id": "q06", "query": "markov decision process bellman equation", "query_type": "keyword", "target_topic": "Markov decision process"}
+{"query_id": "q07", "query": "random forest ensemble decision trees", "query_type": "keyword", "target_topic": "Random forest"}
+{"query_id": "q08", "query": "backpropagation chain rule gradient", "query_type": "keyword", "target_topic": "Backpropagation"}
+{"query_id": "q09", "query": "logistic regression sigmoid activation", "query_type": "keyword", "target_topic": "Logistic regression"}
+{"query_id": "q10", "query": "central limit theorem normal distribution sample mean", "query_type": "keyword", "target_topic": "Central limit theorem"}
+{"query_id": "q11", "query": "linear regression ordinary least squares residuals", "query_type": "keyword", "target_topic": "Linear regression"}
+{"query_id": "q12", "query": "bayes theorem prior posterior probability", "query_type": "keyword", "target_topic": "Bayes' theorem"}
+{"query_id": "q13", "query": "recurrent neural network hidden state LSTM", "query_type": "keyword", "target_topic": "Recurrent neural network"}
+{"query_id": "q14", "query": "expectation maximization algorithm gaussian mixture", "query_type": "keyword", "target_topic": "Expectation–maximization algorithm"}
+{"query_id": "q15", "query": "stochastic gradient descent mini-batch", "query_type": "keyword", "target_topic": "Stochastic gradient descent"}
+{"query_id": "q16", "query": "transformer self attention multi-head attention", "query_type": "keyword", "target_topic": "Transformer (deep learning architecture)"}
+{"query_id": "q17", "query": "cross validation k-fold validation score", "query_type": "keyword", "target_topic": "Cross-validation (statistics)"}
+{"query_id": "q18", "query": "dijkstra algorithm shortest path graph", "query_type": "keyword", "target_topic": "Dijkstra's algorithm"}
+{"query_id": "q19", "query": "regularization L1 lasso L2 ridge penalty", "query_type": "keyword", "target_topic": "Regularization (mathematics)"}
+{"query_id": "q20", "query": "nearest neighbor search distance metric", "query_type": "keyword", "target_topic": "Nearest neighbor search"}
+{"query_id": "q21", "query": "viterbi algorithm hidden markov model", "query_type": "keyword", "target_topic": "Viterbi algorithm"}
+{"query_id": "q22", "query": "gradient boosting xgboost residuals", "query_type": "keyword", "target_topic": "Gradient boosting"}
+{"query_id": "q23", "query": "naive bayes classifier independence assumption", "query_type": "keyword", "target_topic": "Naive Bayes classifier"}
+{"query_id": "q24", "query": "hypothesis testing null hypothesis p-value", "query_type": "keyword", "target_topic": "Statistical hypothesis testing"}
+{"query_id": "q25", "query": "binary search tree balanced AVL tree", "query_type": "keyword", "target_topic": "Binary search tree"}
+{"query_id": "q26", "query": "markov chain monte carlo metropolis hastings", "query_type": "keyword", "target_topic": "Markov chain Monte Carlo"}
+{"query_id": "q27", "query": "information retrieval inverted index term frequency", "query_type": "keyword", "target_topic": "Information retrieval"}
+{"query_id": "q28", "query": "cosine similarity vector space model", "query_type": "keyword", "target_topic": "Cosine similarity"}
+{"query_id": "q29", "query": "eigenvalues eigenvectors diagonal matrix", "query_type": "keyword", "target_topic": "Eigenvalues and eigenvectors"}
+{"query_id": "q30", "query": "activation function relu rectified linear unit", "query_type": "keyword", "target_topic": "Rectifier (neural networks)"}
+{"query_id": "q31", "query": "how do support vector machines maximize the margin between classes?", "query_type": "natural_language_question", "target_topic": "Support vector machine"}
+{"query_id": "q32", "query": "why do convolutional layers share weights across receptive fields?", "query_type": "natural_language_question", "target_topic": "Convolutional neural network"}
+{"query_id": "q33", "query": "how does principal component analysis find the directions of maximum variance?", "query_type": "natural_language_question", "target_topic": "Principal component analysis"}
+{"query_id": "q34", "query": "how does the k-means algorithm determine cluster assignments?", "query_type": "natural_language_question", "target_topic": "K-means clustering"}
+{"query_id": "q35", "query": "how does gradient descent update parameters to minimize the loss function?", "query_type": "natural_language_question", "target_topic": "Gradient descent"}
+{"query_id": "q36", "query": "what is the role of the discount factor in reinforcement learning?", "query_type": "natural_language_question", "target_topic": "Reinforcement learning"}
+{"query_id": "q37", "query": "how does bagging in random forests reduce variance of individual trees?", "query_type": "natural_language_question", "target_topic": "Random forest"}
+{"query_id": "q38", "query": "how does the backpropagation algorithm propagate errors backwards?", "query_type": "natural_language_question", "target_topic": "Backpropagation"}
+{"query_id": "q39", "query": "why is the logistic function used to model binary probability outcomes?", "query_type": "natural_language_question", "target_topic": "Logistic regression"}
+{"query_id": "q40", "query": "what conditions must be satisfied for the central limit theorem to apply?", "query_type": "natural_language_question", "target_topic": "Central limit theorem"}
+{"query_id": "q41", "query": "how does ordinary least squares compute regression coefficients?", "query_type": "natural_language_question", "target_topic": "Linear regression"}
+{"query_id": "q42", "query": "how does bayesian updating modify probability distributions with new evidence?", "query_type": "natural_language_question", "target_topic": "Bayesian inference"}
+{"query_id": "q43", "query": "how do long short-term memory networks mitigate the vanishing gradient problem?", "query_type": "natural_language_question", "target_topic": "Long short-term memory"}
+{"query_id": "q44", "query": "how does the expectation maximization algorithm handle latent unobserved variables?", "query_type": "natural_language_question", "target_topic": "Expectation–maximization algorithm"}
+{"query_id": "q45", "query": "why does stochastic gradient descent converge faster on large training datasets?", "query_type": "natural_language_question", "target_topic": "Stochastic gradient descent"}
+{"query_id": "q46", "query": "how does the self-attention mechanism calculate contextual dependencies?", "query_type": "natural_language_question", "target_topic": "Transformer (deep learning architecture)"}
+{"query_id": "q47", "query": "why is k-fold cross validation preferred over a single train test split?", "query_type": "natural_language_question", "target_topic": "Cross-validation (statistics)"}
+{"query_id": "q48", "query": "how does Dijkstra's algorithm maintain the set of unvisited nodes?", "query_type": "natural_language_question", "target_topic": "Dijkstra's algorithm"}
+{"query_id": "q49", "query": "how does L1 regularization produce sparse models with zero weights?", "query_type": "natural_language_question", "target_topic": "Regularization (mathematics)"}
+{"query_id": "q50", "query": "how do spatial partitioning trees speed up nearest neighbor searches?", "query_type": "natural_language_question", "target_topic": "Nearest neighbor search"}
+{"query_id": "q51", "query": "how does the Viterbi algorithm find the most likely sequence of hidden states?", "query_type": "natural_language_question", "target_topic": "Viterbi algorithm"}
+{"query_id": "q52", "query": "how does boosting sequentially fit new models to the pseudo-residuals of past models?", "query_type": "natural_language_question", "target_topic": "Gradient boosting"}
+{"query_id": "q53", "query": "why does the naive Bayes classifier perform well despite feature independence violations?", "query_type": "natural_language_question", "target_topic": "Naive Bayes classifier"}
+{"query_id": "q54", "query": "how do researchers interpret p-values when deciding to reject the null hypothesis?", "query_type": "natural_language_question", "target_topic": "Statistical hypothesis testing"}
+{"query_id": "q55", "query": "why does an AVL tree perform rotations after an insertion?", "query_type": "natural_language_question", "target_topic": "AVL tree"}
+{"query_id": "q56", "query": "how does the Metropolis-Hastings algorithm accept or reject sample proposals?", "query_type": "natural_language_question", "target_topic": "Metropolis–Hastings algorithm"}
+{"query_id": "q57", "query": "how do search engines score documents using inverted index postings?", "query_type": "natural_language_question", "target_topic": "Inverted index"}
+{"query_id": "q58", "query": "why is cosine similarity invariant to document length in text retrieval?", "query_type": "natural_language_question", "target_topic": "Cosine similarity"}
+{"query_id": "q59", "query": "what geometric transformation occurs when multiplying a vector by its matrix eigenvector?", "query_type": "natural_language_question", "target_topic": "Eigenvalues and eigenvectors"}
+{"query_id": "q60", "query": "why does the rectified linear unit prevent gradient saturation in deep networks?", "query_type": "natural_language_question", "target_topic": "Rectifier (neural networks)"}
+{"query_id": "q61", "query": "drawing a decision boundary that keeps the widest possible corridor between categories", "query_type": "paraphrase_vocab_mismatch", "target_topic": "Support vector machine"}
+{"query_id": "q62", "query": "sliding small feature detectors across an image grid to recognize visual patterns", "query_type": "paraphrase_vocab_mismatch", "target_topic": "Convolutional neural network"}
+{"query_id": "q63", "query": "compressing high-dimensional data into a smaller set of uncorrelated components", "query_type": "paraphrase_vocab_mismatch", "target_topic": "Principal component analysis"}
+{"query_id": "q64", "query": "partitioning unlabeled records into bunches by iteratively updating center positions", "query_type": "paraphrase_vocab_mismatch", "target_topic": "K-means clustering"}
+{"query_id": "q65", "query": "taking small steps downhill along the steepest path to find the lowest valley", "query_type": "paraphrase_vocab_mismatch", "target_topic": "Gradient descent"}
+{"query_id": "q66", "query": "learning optimal policies by interacting with an environment through trial and error", "query_type": "paraphrase_vocab_mismatch", "target_topic": "Reinforcement learning"}
+{"query_id": "q67", "query": "crowdsourcing decisions by polling a large collection of randomized branching flowcharts", "query_type": "paraphrase_vocab_mismatch", "target_topic": "Random forest"}
+{"query_id": "q68", "query": "sending the final prediction mistake backwards through layers to adjust connection strengths", "query_type": "paraphrase_vocab_mismatch", "target_topic": "Backpropagation"}
+{"query_id": "q69", "query": "squeezing real-valued numbers into an S-shaped curve between zero and one", "query_type": "paraphrase_vocab_mismatch", "target_topic": "Logistic regression"}
+{"query_id": "q70", "query": "averaging independent dice rolls produces a predictable symmetric bell shape", "query_type": "paraphrase_vocab_mismatch", "target_topic": "Central limit theorem"}
+{"query_id": "q71", "query": "finding the best straight line through scattered points by minimizing vertical gaps", "query_type": "paraphrase_vocab_mismatch", "target_topic": "Linear regression"}
+{"query_id": "q72", "query": "revising initial beliefs when presented with fresh observational proof", "query_type": "paraphrase_vocab_mismatch", "target_topic": "Bayes' theorem"}
+{"query_id": "q73", "query": "memory cells equipped with gates that control what information to keep or forget", "query_type": "paraphrase_vocab_mismatch", "target_topic": "Long short-term memory"}
+{"query_id": "q74", "query": "estimating cluster parameters when you cannot directly see which group generated each point", "query_type": "paraphrase_vocab_mismatch", "target_topic": "Expectation–maximization algorithm"}
+{"query_id": "q75", "query": "updating model weights using just a tiny random sample of records at each step", "query_type": "paraphrase_vocab_mismatch", "target_topic": "Stochastic gradient descent"}
+{"query_id": "q76", "query": "allowing every token in a sentence to look at and score its relationship with every other token", "query_type": "paraphrase_vocab_mismatch", "target_topic": "Transformer (deep learning architecture)"}
+{"query_id": "q77", "query": "splitting your dataset into rotating chunks to ensure your model truly generalizes", "query_type": "paraphrase_vocab_mismatch", "target_topic": "Cross-validation (statistics)"}
+{"query_id": "q78", "query": "finding the most efficient road trip route across interconnected waypoints", "query_type": "paraphrase_vocab_mismatch", "target_topic": "Dijkstra's algorithm"}
+{"query_id": "q79", "query": "penalizing excessively large parameter coefficients so the model does not memorize noise", "query_type": "paraphrase_vocab_mismatch", "target_topic": "Regularization (mathematics)"}
+{"query_id": "q80", "query": "looking up the closest records in a multi-dimensional geometry space", "query_type": "paraphrase_vocab_mismatch", "target_topic": "Nearest neighbor search"}
+{"query_id": "q81", "query": "dynamic programming pathfinding for uncovering unobserved events behind noisy clues", "query_type": "paraphrase_vocab_mismatch", "target_topic": "Viterbi algorithm"}
+{"query_id": "q82", "query": "training each subsequent learner specifically on the mistakes made by previous rounds", "query_type": "paraphrase_vocab_mismatch", "target_topic": "Gradient boosting"}
+{"query_id": "q83", "query": "predicting categories assuming each piece of evidence acts completely independently", "query_type": "paraphrase_vocab_mismatch", "target_topic": "Naive Bayes classifier"}
+{"query_id": "q84", "query": "determining whether an experimental effect is real or just lucky coincidence", "query_type": "paraphrase_vocab_mismatch", "target_topic": "Statistical hypothesis testing"}
+{"query_id": "q85", "query": "self-balancing node hierarchy maintaining logarithmic lookup depth", "query_type": "paraphrase_vocab_mismatch", "target_topic": "AVL tree"}
+{"query_id": "q86", "query": "drawing random samples from complex probability landscapes through guided random walks", "query_type": "paraphrase_vocab_mismatch", "target_topic": "Markov chain Monte Carlo"}
+{"query_id": "q87", "query": "a lookup dictionary matching words to the list of documents containing them", "query_type": "paraphrase_vocab_mismatch", "target_topic": "Inverted index"}
+{"query_id": "q88", "query": "measuring angle between two word frequency vectors regardless of text length", "query_type": "paraphrase_vocab_mismatch", "target_topic": "Cosine similarity"}
+{"query_id": "q89", "query": "special directions where applying a matrix transformation only stretches but never rotates", "query_type": "paraphrase_vocab_mismatch", "target_topic": "Eigenvalues and eigenvectors"}
+{"query_id": "q90", "query": "a simple ramp function that passes positive inputs directly and zeroes out negative ones", "query_type": "paraphrase_vocab_mismatch", "target_topic": "Rectifier (neural networks)"}
