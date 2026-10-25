@@ -1,0 +1,22 @@
+# Indexing and Lexical Retrieval Configuration
+corpus_path: "data/processed/corpus.jsonl"
+indexes_dir: "data/indexes"
+random_seed: 42
+
+tfidf:
+  sublinear_tf: true
+  smooth_idf: true
+  norm: "l2"
+  min_df: 3
+  max_df: 0.85
+  max_features: 60000
+
+bm25:
+  k1: 1.5
+  b: 0.75
+  epsilon: 0.25
+
+benchmark:
+  num_queries: 100
+  top_k: 10
+  results_output: "reports/results/lexical_benchmark.json"

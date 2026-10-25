@@ -51,6 +51,50 @@ Length distribution plot: `reports/figures/corpus_length_hist.png`
 
 ---
 
+## Phase 2: Lexical Retrieval & From-Scratch TF-IDF (Completed)
+
+In Phase 2, we built the preprocessing and passage-chunking pipeline, implemented a mathematically exact TF-IDF retriever from scratch in NumPy/SciPy sparse matrices, verified correctness against scikit-learn, integrated BM25, and benchmarked both retrievers across 100 domain queries.
+
+### What Was Built:
+1. **Configurable Preprocessing & Chunking (`src/preprocess/`)**:
+   - `tokenizer.py`: Lowercase, regex tokenization, punctuation removal, stopword removal, and Porter stemming (`nltk`).
+   - `chunker.py`: Sliding-window passage chunker (300 words, 50-word overlap) turning long articles into 54,581 searchable units with preserved parent metadata.
+   - `pipeline.py`: Pipeline processing `data/raw/` into `data/processed/corpus.jsonl`.
+2. **From-Scratch TF-IDF Retriever (`src/lexical/tfidf_retriever.py`)**:
+   - Built purely with NumPy and SciPy CSR sparse matrices (no `TfidfVectorizer` used for retrieval).
+   - Inverted index representation with postings.
+   - Smoothed IDF: $\text{idf}(t) = \ln\left(\frac{1 + N}{1 + \text{df}(t)}\right) + 1.0$.
+   - Sublinear term frequency: $\text{tf}(t, d) = 1 + \ln(\text{count})$ for $\text{count} > 0$.
+   - Row-wise $L_2$ normalization and cosine similarity dot product ranking.
+3. **BM25 Retriever (`src/lexical/bm25_retriever.py`)**:
+   - Parameterized BM25 ($k_1=1.5, b=0.75$) conforming to the uniform `BaseRetriever` interface.
+4. **Uniform Retrieval Interface (`src/lexical/base.py`)**:
+   - Abstract `BaseRetriever` class enforcing `search(query, k) -> list[(doc_id, score)]` and `search_with_metadata(query, k) -> list[SearchResult]`.
+5. **Correctness Verification Suite (`tests/test_lexical.py`)**:
+   - Unit tests strictly comparing custom TF-IDF vocabulary, IDF weights, document vectors, query transformations, and cosine ranking scores against `sklearn.feature_extraction.text.TfidfVectorizer` (tolerances $\le 10^{-5}$).
+6. **Lexical Benchmark (`src/lexical/benchmark.py`)**:
+   - Evaluates indexing speed, index disk footprint, and retrieval latency over 100 queries. Results persisted to `reports/results/lexical_benchmark.json`.
+
+---
+
+## Lexical Retrieval Benchmark (Phase 2 Results)
+
+Evaluated on **54,581 passages** over **100 domain queries** ($k=10$). Programmatic metrics from `reports/results/lexical_benchmark.json`:
+
+| Metric | Custom TF-IDF (NumPy/SciPy) | BM25 Baseline (`rank_bm25`) |
+| :--- | :--- | :--- |
+| **Indexing Time** | **15.00 s** | **2.21 s** |
+| **Index Size on Disk** | **284.05 MB** | **294.18 MB** |
+| **Vocabulary Size** | **57,109 features** | **57,109 features** |
+| **Non-Zero Matrix Elements** | **5,189,974 (0.167% density)**| N/A |
+| **Mean Query Latency** | **5.54 ms** | **85.53 ms** |
+| **Median Query Latency** | **5.29 ms** | **84.96 ms** |
+| **95th Percentile Latency (p95)** | **6.43 ms** | **112.66 ms** |
+| **99th Percentile Latency (p99)** | **6.95 ms** | **118.39 ms** |
+| **Throughput (QPS)** | **180.5 req/s** | **11.7 req/s** |
+
+---
+
 ## How to Run
 
 ### 1. Setup Environment

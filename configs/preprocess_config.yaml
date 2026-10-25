@@ -1,0 +1,19 @@
+# Preprocessing and Chunking Configuration
+input_corpus: "data/raw/documents.jsonl"
+output_corpus_jsonl: "data/processed/corpus.jsonl"
+random_seed: 42
+
+preprocessing:
+  lowercase: true
+  remove_punctuation: true
+  remove_numbers: false
+  stopwords: "english"  # "english" or null
+  stemmer: "porter"     # "none", "porter", "wordnet"
+  min_token_length: 2
+  max_token_length: 40
+
+chunking:
+  enabled: true
+  chunk_size_words: 300
+  chunk_overlap_words: 50
+  min_chunk_words: 30

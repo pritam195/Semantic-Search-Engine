@@ -39,9 +39,14 @@ htmlcov/
 # Data and Indexes (large files)
 data/raw/crawler_state.json
 data/raw/*.html
-data/indexes/*.faiss
-data/indexes/*.pkl
-data/indexes/*.bin
+data/processed/*.jsonl
+data/processed/*.parquet
+data/indexes/**/*.npz
+data/indexes/**/*.npy
+data/indexes/**/*.pkl
+data/indexes/**/*.json
+data/indexes/**/*.faiss
+data/indexes/**/*.bin
 
 # Logs & Environment
 *.log

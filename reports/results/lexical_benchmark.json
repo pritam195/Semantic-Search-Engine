@@ -1,0 +1,25 @@
+{
+  "corpus_records_indexed": 54581,
+  "num_queries_evaluated": 100,
+  "top_k": 10,
+  "tfidf_custom": {
+    "indexing_time_sec": 14.998,
+    "index_size_mb": 284.05,
+    "vocabulary_size": 57109,
+    "non_zero_elements": 5189974,
+    "mean_latency_ms": 5.539,
+    "median_latency_ms": 5.292,
+    "p95_latency_ms": 6.43,
+    "p99_latency_ms": 6.946,
+    "qps": 180.5
+  },
+  "bm25_baseline": {
+    "indexing_time_sec": 2.209,
+    "index_size_mb": 294.18,
+    "mean_latency_ms": 85.531,
+    "median_latency_ms": 84.959,
+    "p95_latency_ms": 112.658,
+    "p99_latency_ms": 118.389,
+    "qps": 11.7
+  }
+}

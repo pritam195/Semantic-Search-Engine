@@ -9,6 +9,7 @@ requests>=2.31.0
 beautifulsoup4>=4.12.3
 lxml>=5.1.0
 urllib3>=2.2.0
+nltk>=3.8.1
 
 # --- Embeddings & Vector Search ---
 torch>=2.2.0
