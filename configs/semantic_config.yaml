@@ -1,0 +1,28 @@
+# Semantic Retrieval Configuration
+corpus_path: "data/raw/documents.jsonl"
+cache_dir: "data/indexes/embeddings"
+indexes_dir: "data/indexes/faiss"
+random_seed: 42
+
+chunking:
+  chunk_size_words: 200
+  chunk_overlap_words: 40
+  min_chunk_words: 25
+  aggregation_strategy: "max"  # "max", "mean", "top_k_sum"
+
+embedding:
+  model_name: "sentence-transformers/all-MiniLM-L6-v2"
+  alternative_model: "BAAI/bge-small-en-v1.5"
+  bge_query_prefix: "Represent this sentence for searching relevant passages: "
+  batch_size: 128
+  normalize_embeddings: true
+
+faiss:
+  hnsw_m: 32
+  ef_construction: 64
+  ef_search: 64
+
+benchmark:
+  num_queries: 100
+  top_k: 10
+  results_output: "reports/results/semantic_benchmark.json"

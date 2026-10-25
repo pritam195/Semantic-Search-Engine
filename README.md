@@ -95,6 +95,51 @@ Evaluated on **54,581 passages** over **100 domain queries** ($k=10$). Programma
 
 ---
 
+## Phase 3: Semantic Retrieval & FAISS Vector Search (Completed)
+
+In Phase 3, we built the dense semantic retrieval pipeline using Sentence-Transformers, dual FAISS indices (Exact Flat and Approximate HNSW), passage-to-document score aggregation, and evaluated recall loss between exact and ANN search.
+
+### What Was Built:
+1. **Passage Chunking & Document Aggregation (`src/semantic/retriever.py`)**:
+   - Decomposes documents into overlapping passages (200 words, 40-word overlap).
+   - Preserves chunk-to-document mappings.
+   - Configurable document-level score aggregation strategies: **max-pooling** (default), **mean-pooling**, and **top-k sum**.
+2. **Dense Sentence Embedder (`src/semantic/embedder.py`)**:
+   - Supports both `sentence-transformers/all-MiniLM-L6-v2` and `BAAI/bge-small-en-v1.5` via ONNX Runtime.
+   - Handles the required BGE retrieval query prefix (`"Represent this sentence for searching relevant passages: "`).
+   - Generates 384-dimensional $L_2$-normalized dense embeddings for cosine equivalency under inner product.
+   - Batch encoding with binary disk caching in `.npy` format.
+3. **Dual FAISS Vector Indices (`src/semantic/faiss_index.py`)**:
+   - **Exact Search**: `faiss.IndexFlatIP` (exhaustive dot product search).
+   - **Approximate Search (ANN)**: `faiss.IndexHNSWFlat` ($M=32, efConstruction=64, efSearch=64$).
+4. **Uniform Retrieval Interface**:
+   - Conforms strictly to `BaseRetriever`: `search(query, k) -> list[(doc_id, score)]` and `search_with_metadata(query, k) -> list[SearchResult]`.
+5. **Semantic Benchmark Suite (`src/semantic/benchmark.py`)**:
+   - Profiles embedding time, index build time, memory footprint (RSS), exact vs ANN retrieval latencies over 100 domain queries, and computes empirical **Recall Loss**. Metrics saved to `reports/results/semantic_benchmark.json`.
+
+---
+
+## Semantic Retrieval Benchmark (Phase 3 Results)
+
+Evaluated on **5,000 passages** over **100 domain queries** ($k=10$) with `all-MiniLM-L6-v2` ($D=384$). Programmatic metrics from `reports/results/semantic_benchmark.json`:
+
+| Metric | Exact Dense Search (`IndexFlatIP`) | Approximate Search (`IndexHNSWFlat`) |
+| :--- | :--- | :--- |
+| **Index Build Time** | **0.02 s** | **0.55 s** |
+| **Index Size on Disk** | **7.32 MB** | **8.62 MB** |
+| **Embedding Cache (`.npy`)** | **7.32 MB** | **7.32 MB** |
+| **Embedding Time (5k passages)** | **351.00 s (14.2 passages/s on CPU)** | **351.00 s** |
+| **RAM Footprint (RSS)** | **1,070.94 MB** | **1,070.94 MB** |
+| **Mean Query Latency** | **5.95 ms** | **5.00 ms** |
+| **Median Query Latency** | **5.00 ms** | **4.41 ms** |
+| **95th Percentile Latency (p95)**| **9.41 ms** | **8.19 ms** |
+| **99th Percentile Latency (p99)**| **15.15 ms** | **9.47 ms** |
+| **Throughput (QPS)** | **168.0 req/s** | **199.9 req/s** |
+| **ANN Recall@10 vs Exact** | **100.00% (Baseline)** | **98.10%** |
+| **ANN Recall Loss** | **0.00%** | **1.90%** |
+
+---
+
 ## How to Run
 
 ### 1. Setup Environment
