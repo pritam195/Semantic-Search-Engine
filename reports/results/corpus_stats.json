@@ -1,127 +1,127 @@
 {
-  "document_count": 15,
-  "total_word_count": 50826,
+  "document_count": 5000,
+  "total_word_count": 13185498,
   "length_distribution": {
-    "min": 501,
-    "max": 11329,
-    "mean": 3388.4,
-    "median": 2143,
-    "std": 3016.76,
-    "q25": 1052,
-    "q75": 5410
+    "min": 101,
+    "max": 41893,
+    "mean": 2637.1,
+    "median": 1442,
+    "std": 3379.12,
+    "q25": 613,
+    "q75": 3345
   },
-  "vocabulary_size": 6490,
+  "vocabulary_size": 141919,
   "top_terms": [
     {
-      "term": "learning",
-      "count": 688
+      "term": "displaystyle",
+      "count": 87645
     },
     {
       "term": "data",
-      "count": 464
-    },
-    {
-      "term": "machine",
-      "count": 352
-    },
-    {
-      "term": "model",
-      "count": 228
-    },
-    {
-      "term": "computer",
-      "count": 186
-    },
-    {
-      "term": "displaystyle",
-      "count": 176
-    },
-    {
-      "term": "algorithm",
-      "count": 161
-    },
-    {
-      "term": "statistics",
-      "count": 148
-    },
-    {
-      "term": "models",
-      "count": 136
-    },
-    {
-      "term": "neural",
-      "count": 133
-    },
-    {
-      "term": "science",
-      "count": 125
-    },
-    {
-      "term": "statistical",
-      "count": 122
-    },
-    {
-      "term": "analysis",
-      "count": 120
-    },
-    {
-      "term": "algorithms",
-      "count": 110
-    },
-    {
-      "term": "systems",
-      "count": 110
-    },
-    {
-      "term": "artificial",
-      "count": 107
-    },
-    {
-      "term": "based",
-      "count": 99
+      "count": 33774
     },
     {
       "term": "used",
-      "count": 98
+      "count": 26732
     },
     {
-      "term": "theory",
-      "count": 96
+      "term": "learning",
+      "count": 20107
     },
     {
-      "term": "training",
-      "count": 89
-    },
-    {
-      "term": "set",
-      "count": 82
-    },
-    {
-      "term": "network",
-      "count": 81
-    },
-    {
-      "term": "software",
-      "count": 81
+      "term": "model",
+      "count": 17815
     },
     {
       "term": "time",
-      "count": 81
+      "count": 17239
     },
     {
-      "term": "methods",
-      "count": 81
+      "term": "mathbf",
+      "count": 16700
+    },
+    {
+      "term": "information",
+      "count": 16507
+    },
+    {
+      "term": "systems",
+      "count": 15874
+    },
+    {
+      "term": "based",
+      "count": 15674
+    },
+    {
+      "term": "use",
+      "count": 15409
+    },
+    {
+      "term": "machine",
+      "count": 15286
+    },
+    {
+      "term": "new",
+      "count": 15208
+    },
+    {
+      "term": "computer",
+      "count": 14978
+    },
+    {
+      "term": "example",
+      "count": 14170
+    },
+    {
+      "term": "function",
+      "count": 14046
+    },
+    {
+      "term": "using",
+      "count": 13943
+    },
+    {
+      "term": "set",
+      "count": 13632
+    },
+    {
+      "term": "number",
+      "count": 13562
+    },
+    {
+      "term": "theory",
+      "count": 12386
+    },
+    {
+      "term": "analysis",
+      "count": 12047
+    },
+    {
+      "term": "research",
+      "count": 12024
+    },
+    {
+      "term": "software",
+      "count": 11559
+    },
+    {
+      "term": "language",
+      "count": 11053
+    },
+    {
+      "term": "right",
+      "count": 10912
     }
   ],
-  "duplicate_rate": 0.0,
+  "duplicate_rate": 0.0727,
   "crawler_stats": {
-    "total_crawled": 60,
-    "total_saved": 15,
+    "total_crawled": 5884,
+    "total_saved": 5000,
     "duplicates_url": 0,
-    "duplicates_content": 0,
-    "filtered_short": 0,
+    "duplicates_content": 428,
+    "filtered_short": 33,
     "filtered_lang": 0,
-    "errors": 1
+    "errors": 23
   },
   "internal_duplicates_in_corpus": 0
 }

@@ -31,21 +31,21 @@ In Phase 1, we established the project architecture, virtual environment (Python
 
 ---
 
-## Corpus Statistics (Phase 1 Baseline)
+## Corpus Statistics (Phase 1 Final - 5,000 Documents)
 
 All numbers are generated programmatically via `src/crawler/corpus_stats.py` and saved to `reports/results/corpus_stats.json`:
 
 | Metric | Measured Value |
 | :--- | :--- |
-| **Documents Crawled** | 15 (Initial verified sample batch) |
-| **Total Word Count** | 50,826 words |
-| **Vocabulary Size** | 6,490 unique tokens |
-| **Median Document Length** | 2,143 words |
-| **Mean Document Length** | 3,388.40 ± 3,016.76 words |
-| **Min Document Length** | 501 words |
-| **Max Document Length** | 11,329 words |
-| **Duplicate Rate** | 0.00% |
-| **Top Frequent Terms** | *learning* (688), *data* (464), *machine* (352), *model* (228), *computer* (186) |
+| **Documents Crawled** | 5,000 |
+| **Total Word Count** | 13,185,498 words |
+| **Vocabulary Size** | 141,919 unique tokens |
+| **Median Document Length** | 1,442 words |
+| **Mean Document Length** | 2,637.10 ± 3,379.12 words |
+| **Min Document Length** | 101 words |
+| **Max Document Length** | 41,893 words |
+| **Duplicate Rate** | 7.27% (428 content duplicates filtered) |
+| **Top Frequent Terms** | *data* (33,774), *learning* (20,107), *model* (17,815), *information* (16,507), *systems* (15,874), *machine* (15,286), *computer* (14,978) |
 
 Length distribution plot: `reports/figures/corpus_length_hist.png`
 
