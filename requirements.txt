@@ -1,0 +1,39 @@
+# --- Core Math & Data Processing ---
+numpy>=1.26.0,<2.0.0
+pandas>=2.2.0
+scipy>=1.12.0
+scikit-learn>=1.4.0
+
+# --- Web Crawling & Parsing ---
+requests>=2.31.0
+beautifulsoup4>=4.12.3
+lxml>=5.1.0
+urllib3>=2.2.0
+
+# --- Embeddings & Vector Search ---
+torch>=2.2.0
+sentence-transformers>=2.5.0
+faiss-cpu>=1.8.0
+rank_bm25>=0.2.2
+
+# --- Configuration & Serialization ---
+pyyaml>=6.0.1
+pydantic>=2.6.0
+tqdm>=4.66.0
+
+# --- API Backend & Serving ---
+fastapi>=0.110.0
+uvicorn[standard]>=0.28.0
+
+# --- Frontend & Visualization ---
+streamlit>=1.32.0
+matplotlib>=3.8.0
+seaborn>=0.13.0
+
+# --- Testing & Quality Assurance ---
+pytest>=8.0.0
+pytest-cov>=4.1.0
+pytest-mock>=3.12.0
+black>=24.2.0
+ruff>=0.3.0
+mypy>=1.9.0

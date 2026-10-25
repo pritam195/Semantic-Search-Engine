@@ -1,0 +1,42 @@
+# Crawler configuration
+seed_urls:
+  - "https://en.wikipedia.org/wiki/Category:Machine_learning"
+  - "https://en.wikipedia.org/wiki/Category:Artificial_intelligence"
+  - "https://en.wikipedia.org/wiki/Category:Statistics"
+  - "https://en.wikipedia.org/wiki/Category:Data_mining"
+  - "https://en.wikipedia.org/wiki/Category:Natural_language_processing"
+  - "https://en.wikipedia.org/wiki/Category:Information_retrieval"
+  - "https://en.wikipedia.org/wiki/Category:Deep_learning"
+  - "https://en.wikipedia.org/wiki/Category:Optimization_algorithms"
+  - "https://en.wikipedia.org/wiki/Category:Linear_algebra"
+
+allowed_domains:
+  - "en.wikipedia.org"
+
+# Target document threshold
+target_docs: 5000
+max_depth: 3
+
+# Polite crawling parameters
+user_agent: "SemanticSearchEngineCrawler/1.0 (Course Project; AI/ML Research Portfolio; mailto:student@university.edu)"
+rate_limit:
+  min_delay_seconds: 0.6  # approx 1.6 req/s (within 1 to 2 req/s)
+  max_delay_seconds: 1.0
+
+network:
+  timeout_seconds: 10
+  max_retries: 3
+  backoff_factor: 1.5
+
+filtering:
+  min_word_count: 100
+  allowed_languages:
+    - "en"
+
+storage:
+  raw_dir: "data/raw"
+  output_jsonl: "data/raw/documents.jsonl"
+  state_file: "data/raw/crawler_state.json"
+  save_every_n: 25
+
+random_seed: 42

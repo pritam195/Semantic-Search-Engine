@@ -1,0 +1,11 @@
+project_name: "Semantic Search Engine: TF-IDF vs Embedding-based Retrieval"
+version: "0.1.0"
+random_seed: 42
+
+paths:
+  raw_data: "data/raw"
+  processed_data: "data/processed"
+  indexes: "data/indexes"
+  reports: "reports"
+  figures: "reports/figures"
+  results: "reports/results"
