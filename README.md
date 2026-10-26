@@ -345,6 +345,30 @@ HybridRetriever(
 
 ---
 
+## Phase 6: Production Serving & Interactive Demonstration (Completed)
+
+In Phase 6, we built a production-grade FastAPI service and an interactive Streamlit demonstration application for real-time querying, side-by-side comparison, mathematical explainability, and error analysis.
+
+### What Was Built:
+1. **High-Performance FastAPI Service (`src/api/app.py`, `src/api/service.py`)**:
+   - In-memory index caching via FastAPI `lifespan` context manager: pre-loads TF-IDF, BM25, FAISS, MiniLM embedder, and document corpus once at server startup for sub-10ms response latencies.
+   - `GET /search?q=&method=tfidf|bm25|semantic|hybrid&k=`: Single-method querying returning scores, snippets, latency, and explainability.
+   - `GET /compare?q=&k=`: Multi-method side-by-side execution with overlap metrics (shared count, overlap ratio, and exclusive document sets).
+   - `GET /failures`: Preloaded contrastive queries from Phase 4 error analysis.
+   - `GET /health`: Readiness and memory stats endpoint.
+2. **Interactive Streamlit Web Dashboard (`src/api/ui_streamlit.py`)**:
+   - Side-by-side columns comparing TF-IDF vs. Dense Semantic (MiniLM) results.
+   - Color-coded overlap badges: Shared results with cross-method ranks, TF-IDF only, and Semantic only.
+   - Summary metrics banner: Overlap count & percentage, unique hits per method, and latency breakdown.
+   - Clickable Phase 4 failure examples sidebar button gallery.
+3. **Deep Explainability**:
+   - **TF-IDF**: Mathematical term contribution weights ($q_t \cdot d_t$) and percentage bars.
+   - **Semantic**: Best-matching passage chunk identification and excerpt display.
+4. **Automated Serving Test Suite (`tests/test_api_serving.py`)**:
+   - 8 unit and integration tests covering all endpoints, Pydantic validation, and explainability data structures.
+
+---
+
 ## How to Run
 
 ### 1. Setup Environment
@@ -389,7 +413,17 @@ python -m src.hybrid.tune
 python -m src.eval.ablations
 ```
 
-### 5. Run Full Unit Test Suite (50 Tests)
+### 5. Start FastAPI Serving Backend
+```bash
+python -m uvicorn src.api.app:app --host 127.0.0.1 --port 8000
+```
+
+### 6. Launch Interactive Streamlit UI
+```bash
+streamlit run src/api/ui_streamlit.py --server.port 8501
+```
+
+### 7. Run Full Unit Test Suite (58 Tests across all phases)
 ```bash
 pytest -v
 ```
